@@ -15,7 +15,12 @@ function App() {
         isStopped={isStopped}
         setIsStopped={setIsStopped}
       />
-      <Board duration={duration} isStopped={isStopped} />
+      <Board
+        duration={duration}
+        isStopped={isStopped}
+        setDuration={setDuration}
+        setIsStopped={setIsStopped}
+      />
     </div>
   );
 }

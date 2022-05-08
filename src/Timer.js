@@ -31,7 +31,7 @@ const Timer = ({ duration, setDuration, isStopped, setIsStopped }) => {
 
   return (
     <div
-      className={duration < 180 && isStopped ? "Paused Timer" : "Start Timer"}
+      className={isStopped ? "Paused Timer" : "Start Timer"}
       onClick={() => {
         setIsStopped(!isStopped);
       }}

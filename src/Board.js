@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from "react";
 import letterDice from "./letterDice";
 import { shuffle } from "lodash";
+import Modal from "react-modal";
 
-const Board = ({ duration, isStopped }) => {
+Modal.setAppElement("#root");
+
+const Board = ({ isStopped, setDuration, setIsStopped }) => {
   const [board, setBoard] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
     createBoard();
   }, []);
+
+  const startNewGame = () => {
+    setModalIsOpen(true);
+  };
 
   const createBoard = () => {
     const grid = shuffle(letterDice).map(
@@ -56,8 +64,51 @@ const Board = ({ duration, isStopped }) => {
       </div>
       <div className="button-container">
         <button onClick={handleRotate}>Rotate</button>
-        <button onClick={createBoard}>New Game</button>
+        <button
+          onClick={() => {
+            startNewGame();
+            setIsStopped(true);
+          }}
+        >
+          Reset
+        </button>
       </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={() => setModalIsOpen(false)}
+        contentLabel="New Game Warning"
+        style={{
+          content: {
+            height: "100px",
+            width: "300px",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          },
+        }}
+      >
+        <h2 style={{ textAlign: "center" }}>Start a New Game?</h2>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <button
+            onClick={() => {
+              setIsStopped(false);
+              setModalIsOpen(false);
+            }}
+          >
+            No
+          </button>
+          <button
+            onClick={() => {
+              createBoard();
+              setModalIsOpen(false);
+              setDuration(180);
+              setIsStopped(true);
+            }}
+          >
+            Yes
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 };
