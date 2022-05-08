@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/boggle/static/css/main.d7df6970.css",
-    "main.js": "/boggle/static/js/main.84891232.js",
+    "main.css": "/boggle/static/css/main.6c2a10f3.css",
+    "main.js": "/boggle/static/js/main.51064fe7.js",
     "index.html": "/boggle/index.html",
-    "main.d7df6970.css.map": "/boggle/static/css/main.d7df6970.css.map",
-    "main.84891232.js.map": "/boggle/static/js/main.84891232.js.map"
+    "main.6c2a10f3.css.map": "/boggle/static/css/main.6c2a10f3.css.map",
+    "main.51064fe7.js.map": "/boggle/static/js/main.51064fe7.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7df6970.css",
-    "static/js/main.84891232.js"
+    "static/css/main.6c2a10f3.css",
+    "static/js/main.51064fe7.js"
   ]
 }
