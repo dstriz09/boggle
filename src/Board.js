@@ -63,7 +63,9 @@ const Board = ({ isStopped, setDuration, setIsStopped }) => {
         ))}
       </div>
       <div className="button-container">
-        <button onClick={handleRotate}>Rotate</button>
+        <button onClick={handleRotate} disabled={isStopped}>
+          Rotate
+        </button>
         <button
           onClick={() => {
             startNewGame();
@@ -79,7 +81,7 @@ const Board = ({ isStopped, setDuration, setIsStopped }) => {
         contentLabel="New Game Warning"
         style={{
           content: {
-            height: "100px",
+            height: "125px",
             width: "300px",
             top: "50%",
             left: "50%",
@@ -91,7 +93,7 @@ const Board = ({ isStopped, setDuration, setIsStopped }) => {
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <button
             onClick={() => {
-              setIsStopped(false);
+              setIsStopped(true);
               setModalIsOpen(false);
             }}
           >
