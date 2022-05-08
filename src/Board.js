@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import letterDice from "./letterDice";
 import { shuffle } from "lodash";
 
-const Board = () => {
+const Board = ({ duration, isStopped }) => {
   const [board, setBoard] = useState([]);
 
   useEffect(() => {
@@ -14,7 +14,6 @@ const Board = () => {
       (die) => die[Math.floor(Math.random() * die.length)]
     );
     setBoard(grid);
-    console.log(grid);
     return grid;
   };
 
@@ -44,7 +43,13 @@ const Board = () => {
     <div className="container">
       <div className="Board">
         {board.map((cube, i) => (
-          <p className="Cube" key={i}>
+          <p
+            className="Cube"
+            key={i}
+            style={
+              isStopped ? { color: "rgb(225, 221, 221)" } : { color: "black" }
+            }
+          >
             {cube}
           </p>
         ))}
@@ -58,20 +63,3 @@ const Board = () => {
 };
 
 export default Board;
-
-// 12 - 0
-// 8 - 1
-// 4 - 2
-// 0 - 3
-// 13 - 4
-// 9 - 5
-// 5 - 6
-// 1 - 7
-// 14 - 8
-// 10 - 9
-// 6 - 10
-// 2 - 11
-// 15 - 12
-// 11 - 13
-// 7 - 14
-// 3 - 15
